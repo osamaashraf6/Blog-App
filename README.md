@@ -70,7 +70,7 @@
 - [ ] Create a new app. Give it a meaningful name.
 - [ ] Initialize my project with Git.💯
 - [ ] Build my project schema.
-      Create and run the necessary migration files.
+    - Create and run the necessary migration files.
       - Table and column names match the ERD diagram.
       - note: photo for users table  be a link to an image
       - Foreign keys be included.
