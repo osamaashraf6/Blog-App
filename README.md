@@ -43,14 +43,14 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">Ruby</a></li>
+    <li><a href="https://Rails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://Ruby.com/">Ruby</a></li>
   </ul>
 </details>
 
@@ -65,7 +65,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 
 
 - [ ] Create a new app. Give it a meaningful name.
@@ -79,15 +78,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-
-
-> Comming soon.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -104,7 +94,11 @@ In order to run this project you need a pc and install ant editor you prefer💯
 Example command:
 
 ```sh
- gem install rails
+
+Ruby
+Ruby on Rails
+Visual Studio Code
+PostgreSQL
 ```
  -->
 
@@ -116,8 +110,9 @@ Clone this repository to your desired folder:
 Example commands:
 
 ```sh
-  cd Blog-App
+
   git clone https://github.com/osamaashraf6/Blog-App
+  cd Blog-App
 ```
 
 
@@ -129,8 +124,9 @@ Install this project with:
 
 
 ```sh
-  cd my-project
-  gem install
+ bundle install
+rails db:create
+rails db:migrate
 ```
 
 
@@ -146,25 +142,12 @@ To run the project, execute the following command:
 
 
 
-### Deployment
-
-You can deploy this project using: Render or Netlify
-
-<!--
-Example:
-
-```sh
-
-```
- -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
 
 👤 **Author**
 - GitHub: [Osama Ashraf](https://github.com/osamaashraf6)
