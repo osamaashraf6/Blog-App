@@ -1,0 +1,4 @@
+
+
+require_relative '../config/application'
+require 'importmap/commands'
