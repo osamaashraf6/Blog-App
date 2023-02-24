@@ -44,8 +44,6 @@ m = Module.new do
     bundler_version
   end
 
-  # rubocop:enable Metrics/CyclomaticComplexity
-
   def gemfile
     gemfile = ENV.fetch('BUNDLE_GEMFILE', nil)
     return gemfile if gemfile && !gemfile.empty?
