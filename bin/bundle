@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# rubocop:disable all
+
 # rubocop:disable Metrics/PerceivedComplexity
 
 # rubocop:disable Style/FrozenStringLiteralComment
@@ -27,7 +29,7 @@ m = Module.new do
   def env_var_version
     ENV.fetch('BUNDLER_VERSION', nil)
   end
-  
+
 # rubocop:disable Metrics/CyclomaticComplexity
   def cli_arg_version
     return unless invoked_as_script? # don't want to hijack other binstubs
