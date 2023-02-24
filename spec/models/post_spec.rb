@@ -12,6 +12,16 @@ RSpec.describe Post, type: :model do
       expect(@post).to_not be_valid
     end
 
+    it 'add a test for Post where the title is valid.' do
+      @post.title = "osama"
+      expect(@post).to be_valid
+    end
+
+    it "is valid with a title that is 250 characters or less" do
+      @post = Post.new(title: "a" * 250, text: "Lorem ipsum", author: @author)
+      expect(@post).to be_valid
+    end
+
     it 'the comments counter ought to be integer num' do
       @post.commentsCounter = 6.2
       expect(@post).not_to be_valid
@@ -22,7 +32,16 @@ RSpec.describe Post, type: :model do
       expect(@post).to_not be_valid
     end
 
+    it ' add a test for the comments counter where it is valid' do
+      @post.commentsCounter = 5
+      expect(@post).to be_valid
+    end
+
     it 'the likes counter ought to be greater than zero' do
+      @post.likesCounter = -6
+      expect(@post).to_not be_valid
+    end
+    it ' add a test for the likes counter where it is valid' do
       @post.likesCounter = -6
       expect(@post).to_not be_valid
     end

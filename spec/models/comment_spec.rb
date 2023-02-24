@@ -20,6 +20,11 @@ RSpec.describe Comment, type: :model do
       expect(@comment).to_not be_valid
     end
 
+    it 'add a test for the post id to be valid' do
+        comment = Comment.new(author: @author, post: @post)
+        expect(comment).to be_valid
+      end
+
     it 'here is the test of method update_comment_counter' do
       @comment.update_comment_counter
       expect(@post.commentsCounter).to be(1)

@@ -8,6 +8,10 @@ RSpec.describe User, type: :model do
       subject.name = nil
       expect(subject).to_not be_valid
     end
+    it ' add a test for the name of the author, where it is valid.' do
+      subject.name = 'abc'
+      expect(subject).to be_valid
+    end
     it 'the posts counter ought to be integer num' do
       subject.postsCounter = 'osama'
       expect(subject).to_not be_valid
@@ -19,6 +23,10 @@ RSpec.describe User, type: :model do
     it 'the posts counter ought to be integer num' do
       subject.postsCounter = 6.2
       expect(subject).to_not be_valid
+    end
+    it 'add a test for the post counter where it is valid' do
+      subject.postsCounter = 6
+      expect(subject).to be_valid
     end
     it 'The length of the array of recent_posts method' do
       method_length = subject.recent_posts.length
