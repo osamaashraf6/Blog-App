@@ -5,8 +5,6 @@ RSpec.describe Comment, type: :model do
     before(:each) do
       @author = User.new(name: 'osama', photo: 'osamaportrait', bio: 'engineer of computer engineering')
       @post = Post.new(author: @author, title: 'Hi guys I am testing the post model', text: 'powered By osama')
-      # @post = @author.posts.new(title: 'Hi guys I am testing the post model', text: 'powered By osama')
-
       @comment = Comment.new(text: 'First comment', author: @author, post: @post)
     end
 
@@ -21,9 +19,9 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'add a test for the post id to be valid' do
-        comment = Comment.new(author: @author, post: @post)
-        expect(comment).to be_valid
-      end
+      comment = Comment.new(author: @author, post: @post)
+      expect(comment).to be_valid
+    end
 
     it 'here is the test of method update_comment_counter' do
       @comment.update_comment_counter

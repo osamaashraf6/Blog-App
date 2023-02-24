@@ -12,8 +12,8 @@ RSpec.describe Like, type: :model do
       @like.author_id = 'osama'
       expect(@like).to_not be_valid
     end
-  
-    it "is valid if it belongs to the author who created it" do
+
+    it 'is valid if it belongs to the author who created it' do
       like = Like.new(author: @author, post: @post)
       expect(like).to be_valid
     end

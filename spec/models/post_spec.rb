@@ -13,12 +13,12 @@ RSpec.describe Post, type: :model do
     end
 
     it 'add a test for Post where the title is valid.' do
-      @post.title = "osama"
+      @post.title = 'osama'
       expect(@post).to be_valid
     end
 
-    it "is valid with a title that is 250 characters or less" do
-      @post = Post.new(title: "a" * 250, text: "Lorem ipsum", author: @author)
+    it 'is valid with a title that is 250 characters or less' do
+      @post = Post.new(title: 'f' * 250, text: 'Lorem ipsum', author: @author)
       expect(@post).to be_valid
     end
 
