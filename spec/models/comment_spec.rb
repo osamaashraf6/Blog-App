@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe 'comment test validations' do
+  describe 'comment test' do
     before(:each) do
       @author = User.new(name: 'osama', photo: 'osamaportrait', bio: 'engineer of computer engineering')
       @post = Post.new(author: @author, title: 'Hi guys I am testing the post model', text: 'powered By osama')
