@@ -1,0 +1,7 @@
+<h1>All Posts for <%= @user.name %></h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, user_post_path(@user, post) %></li>
+  <% end %>
+</ul>
