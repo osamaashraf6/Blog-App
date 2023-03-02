@@ -1,43 +1,5 @@
 require 'rails_helper'
 
-# RSpec.describe 'Posts', type: :request do
-#   describe 'GET #index' do
-#     before(:each) do
-#       get '/users/1/posts'
-#     end
-
-#     it 'When the GET request response status is right' do
-#       expect(response).to have_http_status(:ok)
-#     end
-
-#     it 'When renders the correct template' do
-#       expect(response).to render_template(:index)
-#     end
-
-#     it 'when response  involves right placeholder text' do
-#       expect(response.body).to include('All Posts for')
-#     end
-
-#     describe 'GET #show' do
-#       before(:each) do
-#         get '/users/1/posts/1'
-#       end
-
-#       it 'When the GET request response status is right' do
-#         expect(response).to have_http_status(:ok)
-#       end
-
-#       it 'When renders the right template' do
-#         expect(response).to render_template(:show)
-#       end
-
-#       it 'when rendered the content rightly' do
-#         expect(response.body).to include('Post details')
-#       end
-#     end
-#   end
-# end
-
 RSpec.describe PostsController, type: :request do
   let(:user) { User.create(name: 'Test User') }
   let(:post) { user.posts.create(title: 'Test Post', text: 'This is a test post.') }
