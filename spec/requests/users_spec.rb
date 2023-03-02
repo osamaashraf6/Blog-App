@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET #index' do
-    user = User.create(name: 'osamamar',  photo: "https://unsplash.com/photos/F_-0BxGuVvo",  bio: "carpenter from america.")
+    user = User.create(name: 'osamamar', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                       bio: 'carpenter from america.')
     before(:each) do
       get '/users'
     end
@@ -21,7 +22,8 @@ RSpec.describe 'Users', type: :request do
 
     describe 'GET #show' do
       before(:each) do
-        user = User.create(name: 'osamamar',  photo: "https://unsplash.com/photos/F_-0BxGuVvo",  bio: "carpenter from america.")
+        user = User.create(name: 'osamamar', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                           bio: 'carpenter from america.')
         get "/users/#{user.id}"
       end
 
