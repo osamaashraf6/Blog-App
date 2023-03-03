@@ -8,6 +8,7 @@
     <div class="aside__right">
     <%=  @user.name %>
     <%=  @user.postsCounter || 0 %>
+    <%= link_to "Add post", new_user_post_path(@user.id), class: "wow"  %>
     </div>
     </div></div>
 </div>
@@ -19,8 +20,8 @@
     <span>  <%= post.id %> #</span>
    <span> <%= link_to post.title, user_post_path(@user, post) %></span>
    <span> <%=  post.text %></span>
-    <span> likes:  <%=  post.commentsCounter || 0 %> </span>
-    <span> comments: <%=  post.likesCounter || 0 %> </span>
+    <span> comments:  <%=  post.commentsCounter || 0 %> </span>
+    <span> likes: <%=  post.likesCounter || 0 %> </span>
 
 
 <div class="postcomment">
