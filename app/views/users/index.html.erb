@@ -10,7 +10,7 @@
     </div>
     <div class="aside__right">
     <%= link_to user.name, user_path(user) %>
-    <%=  user.postsCounter %>
+    <%=  user.postsCounter || 0 %>
     </div>
     </div></li>
    </div>

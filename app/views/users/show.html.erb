@@ -19,14 +19,14 @@
 <h2>Posts:</h2>
 
 <ul class="useridposts">
-  <% @user.posts.each do |post| %>
+  <% @user.recent_posts.each do |post| %>
    <div class="container">
     <li>
     <span>  <%= post.id %> #</span>
    <span> <%= link_to post.title, user_post_path(@user, post) %></span>
    <span> <%=  post.text %></span>
-    <span> likes: X <%=  post.commentsCounter  %> </span>
-    <span> comments: Y <%=  post.likesCounter %> </span>
+    <span> likes:  <%=  post.commentsCounter || 0 %> </span>
+    <span> comments:  <%=  post.likesCounter || 0 %> </span>
  
     </li>
    </div>

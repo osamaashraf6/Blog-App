@@ -7,31 +7,29 @@
     </div>
     <div class="aside__right">
     <%=  @user.name %>
-    <%=  @user.postsCounter %>
+    <%=  @user.postsCounter || 0 %>
     </div>
     </div></div>
 </div>
 
 <ul class="useridposts">
-  <% @user.posts.each do |post| %>
+  <% @posts.each do |post| %>
 <div class="container">
     <li class="postshow">
     <span>  <%= post.id %> #</span>
    <span> <%= link_to post.title, user_post_path(@user, post) %></span>
    <span> <%=  post.text %></span>
-    <span> likes: X <%=  post.commentsCounter  %> </span>
-    <span> comments: Y <%=  post.likesCounter %> </span>
+    <span> likes:  <%=  post.commentsCounter || 0 %> </span>
+    <span> comments: <%=  post.likesCounter || 0 %> </span>
 
 
 <div class="postcomment">
-<p>username: comment 1</p>
-<p>username: comment 2</p>
-<p>username: comment 3</p>
-<p>username: comment 4</p>
+ <% post.recent_five_comments.each do |comment|%>
+          <p><%= comment.author.name %> : <%= comment.text %></p>
+        <% end %>
 </div>
 
     </li>
 </div>
   <% end %>
   </ul>
-
