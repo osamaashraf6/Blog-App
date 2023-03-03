@@ -1,5 +1,15 @@
-<h1><%= @post.title %></h1>
+<div class="container">
+<div class="showpost">
 
+<div class="flex"><span><%= @post.id %># By : <%= @user.name %>  </span> <span> likes:  <%=  @post.commentsCounter || 0 %> </span> <span> comments:  <%=  @post.likesCounter || 0 %> </span></div>
+<p><%= @post.text %></p>
 
+</div>
+<div class="showpostcomment">
+ <% @post.comments.each do |comment|%>
+          <p><%= comment.author.name %> : <%= comment.text %></p>
+        <% end %>
+</div>
+</div>
 
 <p>Posted by <%= @user.name %> on <%= @post.created_at.strftime("%B %d, %Y") %></p>

@@ -1,7 +1,18 @@
 <h1>All Users</h1>
-
 <ul>
   <% @users.each do |user| %>
-    <li><%= link_to user.name, user_path(user) %></li>
+   <div class="container">
+    <li><div class="aside">
+    <div class="aside__left">
+    <div class="aside__left__responsive">
+    <img src= <%=  user.photo %> alt= <%=  user.id %> class="responsive aside__left__responsive__respo">
+    </div>
+    </div>
+    <div class="aside__right">
+    <%= link_to user.name, user_path(user) %>
+    <%=  user.postsCounter || 0 %>
+    </div>
+    </div></li>
+   </div>
   <% end %>
 </ul>

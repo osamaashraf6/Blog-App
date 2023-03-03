@@ -1,7 +1,35 @@
-<h1>All Posts for <%= @user.name %></h1>
+<div class="container">
+<div><div class="aside">
+    <div class="aside__left">
+    <div class="aside__left__responsive">
+    <img src= <%=  @user.photo %> alt= <%=  @user.id %> class="responsive aside__left__responsive__respo">
+    </div>
+    </div>
+    <div class="aside__right">
+    <%=  @user.name %>
+    <%=  @user.postsCounter || 0 %>
+    </div>
+    </div></div>
+</div>
 
-<ul>
+<ul class="useridposts">
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, user_post_path(@user, post) %></li>
+<div class="container">
+    <li class="postshow">
+    <span>  <%= post.id %> #</span>
+   <span> <%= link_to post.title, user_post_path(@user, post) %></span>
+   <span> <%=  post.text %></span>
+    <span> likes:  <%=  post.commentsCounter || 0 %> </span>
+    <span> comments: <%=  post.likesCounter || 0 %> </span>
+
+
+<div class="postcomment">
+ <% post.recent_five_comments.each do |comment|%>
+          <p><%= comment.author.name %> : <%= comment.text %></p>
+        <% end %>
+</div>
+
+    </li>
+</div>
   <% end %>
-</ul>
+  </ul>
