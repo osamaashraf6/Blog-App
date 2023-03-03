@@ -1,7 +1,37 @@
-<h1>All Posts for <%= @user.name %></h1>
+<div class="container">
+<div><div class="aside">
+    <div class="aside__left">
+    <div class="aside__left__responsive">
+    <img src= <%=  @user.photo %> alt= <%=  @user.id %> class="responsive aside__left__responsive__respo">
+    </div>
+    </div>
+    <div class="aside__right">
+    <%=  @user.name %>
+    <%=  @user.postsCounter %>
+    </div>
+    </div></div>
+</div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, user_post_path(@user, post) %></li>
+<ul class="useridposts">
+  <% @user.posts.each do |post| %>
+<div class="container">
+    <li class="postshow">
+    <span>  <%= post.id %> #</span>
+   <span> <%= link_to post.title, user_post_path(@user, post) %></span>
+   <span> <%=  post.text %></span>
+    <span> likes: X <%=  post.commentsCounter  %> </span>
+    <span> comments: Y <%=  post.likesCounter %> </span>
+
+
+<div class="postcomment">
+<p>username: comment 1</p>
+<p>username: comment 2</p>
+<p>username: comment 3</p>
+<p>username: comment 4</p>
+</div>
+
+    </li>
+</div>
   <% end %>
-</ul>
+  </ul>
+
