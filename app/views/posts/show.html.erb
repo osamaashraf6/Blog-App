@@ -1,9 +1,15 @@
 <div class="container">
 <div class="showpost">
 
-<div class="flex"><span><%= @post.id %># By : <%= @user.name %>  </span> <span> likes:  <%=  @post.commentsCounter || 0 %> </span> <span> comments:  <%=  @post.likesCounter || 0 %> </span></div>
+<div class="flex"><span><%= @post.id %># By : <%= @user.name %>  </span> <span> comments:  <%=  @post.commentsCounter || 0 %> </span> <span> likes:  <%=  @post.likesCounter || 0 %> </span></div>
 <p><%= @post.text %></p>
-
+    <div class="sd">
+      <%= form_with model: @new_like, url: user_post_likes_path(post_id: @post.id)  do |form|  %>
+        <%= form.submit "Add like " ,class: "xd" %>
+      <% end %>
+      <%= link_to "Add comment ", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id ) %>
+    </div>
+  </div>
 </div>
 <div class="showpostcomment">
  <% @post.comments.each do |comment|%>

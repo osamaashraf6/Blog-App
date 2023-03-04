@@ -1,0 +1,21 @@
+<section class="wsr">
+  <h1>New post</h1>
+  <% if @new_post.errors.any? %>
+    <div class="daa">
+      <% @new_post.errors.full_messages.each do |message| %>
+        <div> <%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= form_with model: @new_post, url: user_posts_path(@current_user)  do |form|  %>
+    <div class="wows">
+      <%= form.label :title ,class: "form" %>
+      <%= form.text_field :title ,class: "vcv" %>
+    </div>
+    <div class="wows">
+      <%= form.label :text ,class: "formlabel" %>
+      <%= form.text_area :text ,class: "area" %>
+    </div>
+    <%= form.submit "Add post" ,class: "btn" %>
+  <% end %>
+</section>
