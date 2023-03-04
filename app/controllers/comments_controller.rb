@@ -24,11 +24,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text)
   end
 end
-
-# def create
-#   @post = Post.find(params[:post_id])
-#   @new_comment = Comment.create(comment_params)
-#   @new_comment.author = current_user
-#   @new_comment.post = @post
-
-#   if @new_comment.save
