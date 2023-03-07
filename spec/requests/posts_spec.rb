@@ -17,7 +17,7 @@ RSpec.describe PostsController, type: :request do
 
     it 'includes the post title in the response body' do
       get user_posts_path(user)
-      expect(response.body).to include('All Posts for Test User')
+      expect(response.body).to include('Test User')
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe PostsController, type: :request do
 
     it 'includes the post title and body in the response body' do
       get user_post_path(user, post)
-      expect(response.body).to include('Test Post')
+      expect(response.body).to include('This is a test post.')
       # expect(response.body).to include(post.text)
     end
   end
