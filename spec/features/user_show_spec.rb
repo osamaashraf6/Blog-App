@@ -9,7 +9,7 @@ RSpec.describe 'User show page', type: :feature do
       @post.update_post_counter
     end
     @like = Like.create(author: @user, post_id: @post.id)
-  
+
     visit user_path @user.id
   end
   describe 'tests show' do

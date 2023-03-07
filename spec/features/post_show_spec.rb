@@ -18,9 +18,8 @@ RSpec.describe 'Post index', type: :feature do
   end
   describe 'tests for view show' do
     it 'name user.' do
-        expect(page).to have_content 'osama'
-      end
-  
+      expect(page).to have_content 'osama'
+    end
 
     it 'wrote the post' do
       expect(page).to have_content 'osama'

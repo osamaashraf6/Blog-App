@@ -15,7 +15,6 @@
 # @like = Like.create(author: @user, post_id: @post.id)
 # @like.update_like_counter
 
-
 require 'rails_helper'
 
 RSpec.describe 'Post index', type: :feature do
