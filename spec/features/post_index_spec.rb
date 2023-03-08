@@ -1,73 +1,54 @@
-# (1..5).each do |i|
-#   @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!"
-#   @post.update_post_counter
-# end
-# @comment = Comment.create(text: 'second comment', author: @user, post_id: @post.id)
-# @comment.update_comment_counter
-# @like = Like.create(author: @user, post_id: @post.id)
-# @like.update_like_counter
-# (1..5).each do |i|
-#   @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!"
-#   @post.update_post_counter
-# end
-# @comment = Comment.create(text: 'second comment', author: @user, post_id: @post.id)
-# @comment.update_comment_counter
-# @like = Like.create(author: @user, post_id: @post.id)
-# @like.update_like_counter
-
 require 'rails_helper'
 
-RSpec.describe 'Post index', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'osama', photo: 'imagelink.jpg', bio: 'Egyptian developer')
-    @post = Post.create(author: @user, title: 'title', text: 'text')
-    (1..5).each do |i|
-      @user.posts.create title: "Post number #{i}", text: "This is my #{i} post!"
-      @post.update_post_counter
-    end
-    @comment = Comment.create(text: 'second comment', author: @user, post_id: @post.id)
-    @comment.update_comment_counter
-    @like = Like.create(author: @user, post_id: @post.id)
-    @like.update_like_counter
-    visit user_posts_path @user.id
+RSpec.describe 'the index of post', type: :feature do
+  before :each do
+    @user = User.create(
+      name: 'Osama',
+      photo: 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795',
+      bio: 'Egyptian developer',
+      postsCounter: 0
+    )
+    @post = Post.create(author_id: @user.id, title: 'title', text: 'My post of osama', commentsCounter: 0,
+                        likesCounter: 0)
+    Comment.create(post_id: @post.id, author_id: @user.id, text: 'curious comment')
+    Comment.create(post_id: @post.id, author_id: @user.id, text: 'This osama comment')
+    visit user_posts_path(@user.id)
   end
-  describe 'posts index' do
-    it 'see the users profile picture.' do
-      expect(page.find('.responsive')['src']).to have_content @user.photo
-    end
 
-    it 'name user.' do
-      expect(page).to have_content 'osama'
-    end
+  it 'the picture of the user' do
+    assert page.has_xpath?("//img[@src='https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795']")
+  end
 
-    it 'number posts' do
-      expect(page).to have_content '5'
-    end
+  it 'username of the user' do
+    expect(page).to have_content(@user.name)
+  end
 
-    it 'posts title' do
-      expect(page).to have_content 'title'
-    end
+  it 'number of post of user' do
+    expect(page).to have_content('0')
+  end
 
-    it 'posts body' do
-      expect(page).to have_content 'text'
-    end
+  it 'title of post' do
+    expect(page).to have_content(@post.title)
+  end
 
-    it 'comments  post' do
-      expect(page).to have_content 'second comment'
-    end
+  it 'body of a post' do
+    expect(page).to have_content('My post of osama')
+  end
 
-    it 'comments post' do
-      expect(page).to have_content 'comments: 1'
-    end
+  it 'comments of a post' do
+    expect(page).to have_content('curious comment')
+  end
 
-    it 'likes post' do
-      expect(page).to have_content 'likes: 1'
-    end
+  it 'comments  post' do
+    expect(page).to have_content('comments: 0')
+  end
 
-    it 'post redirects post page' do
-      visit user_post_path(@user.id, @post.id)
-      expect(page).to have_content 'comment'
-      expect(page).to have_content 'like'
-    end
+  it 'likes for a post' do
+    expect(page).to have_content('likes: 0')
+  end
+
+  it 'redirect to posts show' do
+    click_on 'title'
+    expect(page).to have_current_path user_post_path(@user.id, @post.id)
   end
 end

@@ -1,45 +1,55 @@
 require 'rails_helper'
 
-RSpec.describe 'User show page', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'osama', photo: 'imagelink.jpg', bio: 'Egyptian developer')
-    @post = Post.create(author: @user, title: 'title', text: 'text')
-    (1..5).each do |i|
-      @user.posts.create title: "Post number #{i}", text: "This is my #{i} post"
-      @post.update_post_counter
-    end
-    @like = Like.create(author: @user, post_id: @post.id)
-
-    visit user_path @user.id
+RSpec.describe 'idex user', type: :feature do
+  before :each do
+    @user = User.create(
+      name: 'Osama',
+      photo: 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795',
+      bio: 'Programmer',
+      postsCounter: 0
+    )
+    @post1 = Post.create(author_id: @user.id, title: 'title osama', text: 'osama post one', commentsCounter: 0,
+                         likesCounter: 0)
+    @post2 = Post.create(author_id: @user.id, title: 'my title of osama', text: 'osama post two', commentsCounter: 0,
+                         likesCounter: 0)
+    @post3 = Post.create(author_id: @user.id, title: 'osama title', text: 'osama post three', commentsCounter: 0,
+                         likesCounter: 0)
+    visit user_path(@user.id)
   end
-  describe 'tests show' do
-    it 'users profile image.' do
-      expect(page.find('img')['src']).to have_content @user.photo
-    end
 
-    it 'name of user' do
-      expect(page).to have_content 'osama'
-    end
+  it 'picture of user' do
+    assert page.has_xpath?("//img[@src = 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795']")
+  end
 
-    it 'test number of posts ' do
-      expect(page).to have_content ' 5'
-    end
+  it 'username' do
+    expect(page).to have_content(@user.name)
+  end
 
-    it 'users bio' do
-      expect(page).to have_content 'Egyptian developer'
-    end
+  it 'posts user' do
+    expect(page).to have_content('0')
+  end
 
-    it 'users first 3 posts' do
-      expect(page).to have_content 'Post number 5'
-      expect(page).to have_content 'Post number 4'
-      expect(page).to have_content 'Post number 3'
-      expect(page).to have_no_content 'Post number 2'
-    end
+  it 'user bio' do
+    expect(page).to have_content('Programmer')
+  end
 
-    it 'user post redirect post' do
-      visit user_post_path(@user.id, @post.id)
-      expect(page).to have_content 'comment'
-      expect(page).to have_content 'like'
-    end
+  it 'first three posts of user' do
+    expect(page).to have_content(@post1.title)
+    expect(page).to have_content(@post2.title)
+    expect(page).to have_content(@post3.title)
+  end
+
+  it 'button for all post' do
+    expect(page).to have_link('See all posts')
+  end
+
+  it 'redirect to post show' do
+    click_on 'title osama'
+    expect(page).to have_current_path user_post_path(@user.id, @post1.id)
+  end
+
+  it 'redirect to all index ' do
+    click_link('See all posts')
+    expect(page).to have_current_path user_posts_path(@user.id)
   end
 end

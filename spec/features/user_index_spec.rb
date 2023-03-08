@@ -1,20 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe 'User index page', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'osama', photo: 'imagelink.jpg', bio: 'Egyptian developer')
-    @post = Post.create(author: @user, title: 'title', text: 'text')
-    @like = Like.create(author: @user, post_id: @post.id)
-    @post.update_post_counter
+RSpec.describe 'User Index', type: :feature do
+  before :each do
+    @user1 = User.create(
+      name: 'Osama',
+      photo: 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795',
+      bio: 'Full stack',
+      postsCounter: 3
+    )
+    @user2 = User.create(
+      name: 'Salem',
+      photo: 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795',
+      bio: 'programmer',
+      postsCounter: 0
+    )
     visit root_path
   end
-  describe 'tests for index' do
-    it 'name of user' do
-      expect(page).to have_content 'osama'
-    end
 
-    it 'posts of user' do
-      expect(page).to have_content ' 1'
-    end
+  it 'username of all user' do
+    expect(page).to have_content(@user1.name)
+    expect(page).to have_content(@user2.name)
+  end
+
+  it 'photo of user' do
+    assert page.has_xpath?("//img[@src = 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795']")
+    assert page.has_xpath?("//img[@src = 'https://www.shutterstock.com/image-vector/hi-hello-banner-speech-bubble-poster-1505210795']")
+  end
+
+  it 'number of posts' do
+    expect(page).to have_content(' 3')
+    expect(page).to have_content('0')
+  end
+
+  it 'show  on click' do
+    click_link(@user1.name)
+    expect(page).to have_current_path user_path(@user1.id)
   end
 end
