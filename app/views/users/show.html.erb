@@ -23,7 +23,7 @@
    <div class="container">
     <li>
     <span>  <%= post.id %> #</span>
-   <span> <%= link_to post.title, user_post_path(@user, post) %></span>
+   <span> <%= link_to post.title, user_post_path(@user, post), :class => 'post-title' %></span>
    <span> <%=  post.text %></span>
     <span> comments:  <%=  post.commentsCounter || 0 %> </span>
     <span> likes:  <%=  post.likesCounter || 0 %> </span>
