@@ -23,6 +23,8 @@ body {
   font-size: 16px;
   line-height: 1.42857143;
   color: #777;
+  display: grid;
+  place-items: center;
 }
 
 /* end universal styles */

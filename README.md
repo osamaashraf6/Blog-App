@@ -155,8 +155,8 @@ To run the project, execute the following command:
 👤 **Khomotso Mkansi**
 
 - GitHub: [@githubhandle](https://momotsow.github.io/microverse-portfolio/)
-- Twitter: [@twitterhandle](#)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/khomotso-prudence-mkansi/)
+- 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
