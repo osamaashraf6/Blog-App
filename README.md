@@ -152,7 +152,11 @@ To run the project, execute the following command:
 - Twitter: [Osama Ashraf](https://twitter.com/OsamaAshraf578?t=l75KjrhQgK4h-vSPfgk1gA&s=08)
 - LinkedIn: [Osama Ashraf](https://www.linkedin.com/in/osama-salem-2a046b203)
 
+👤 **Khomotso Mkansi**
 
+- GitHub: [@githubhandle](https://momotsow.github.io/microverse-portfolio/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/khomotso-prudence-mkansi/)
+- 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
