@@ -32,5 +32,8 @@
    </div>
   <% end %>
   <button class="seeallposts"><%= link_to "See all posts", user_posts_path(@user) %></button>
+<% if user_signed_in? %>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+<% end %>
 
 </ul>
