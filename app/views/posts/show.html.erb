@@ -8,13 +8,21 @@
         <%= form.submit "Add like " ,class: "xd" %>
       <% end %>
       <%= link_to "Add comment ", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id ) %>
+         <% if can? :destory, @post%>
+        <%= button_to "Delete ", user_post_path(user_id:@post.author_id,id: @post.id) ,method: :delete, class: "btn" %>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="showpostcomment">
  <% @post.comments.each do |comment|%>
           <p><%= comment.author.name %> : <%= comment.text %></p>
+
+            <% if can? :destory, comment%>
+            <%= button_to "Delete ", user_post_comment_path(user_id:comment.author_id,post_id: comment.post_id,id:comment.id) ,method: :delete, class: "btn" %>
+          <% end %>
         <% end %>
+        
 </div>
 </div>
 

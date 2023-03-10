@@ -26,14 +26,11 @@
 
 > In this project, The Blog app will be a classic example of a blog website. I will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-
-
 ## 🛠 Built With <a name="built-with"></a>
 
 - [x] Database👌
 - [x] ROR (Ruby on Rails) 
 - [x] Postgresql
-
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -63,11 +60,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-
-
 - [ ] Create a new app. Give it a meaningful name.
 - [ ] Initialize my project with Git.💯
-- [ ] Build my project schema.
+- [ ] Build my project schema.💯
     - Create and run the necessary migration files.
       - Table and column names match the ERD diagram.
       - note: photo for users table  be a link to an image
@@ -184,7 +179,6 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
 
 
 If you like this project just give me a star to the project😊
