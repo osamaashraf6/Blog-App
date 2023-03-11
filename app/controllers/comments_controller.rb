@@ -1,33 +1,25 @@
-class CommentsController < ApplicationController
-  def new
-    @current_user = current_user
-    @new_comment = Comment.new
+class Api::CommentsController < ApplicationController
+  before_action :authorize_request
+  protect_from_forgery with: :null_session
+
+  def index
+    @comments = Comment.where(post_id: params[:post_id])
+
+    if @comments.empty?
+      json_response({ msg: 'Not found' }, 400)
+    else
+      render json: @comments
+    end
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @new_comment = Comment.create(comment_params)
-    @new_comment.author = current_user
-    @new_comment.post = @post
+    @comment = Comment.create(
+      text: comment_params[:text],
+      user_id: params[:user_id],
+      post_id: params[:post_id]
+    )
 
-    if @new_comment.save
-      @new_comment.update_comment_counter
-      redirect_to user_post_path(current_user.id, @post.id)
-    else
-      render :new, alert: 'error'
-    end
-  end
-
-  def destroy
-    deleted_comment = Comment.find(params[:id])
-    post = Post.find(params[:post_id])
-    post.commentsCounter -= 1
-    deleted_comment.destroy
-    if post.save
-      redirect_to user_post_path(params[:user_id], post.id), notice: 'delete successfully'
-    else
-      render :new, alert: 'error at deleting the comment'
-    end
+    json_response(@comment, :created)
   end
 
   private
