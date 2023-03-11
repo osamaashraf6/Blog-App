@@ -34,7 +34,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
 <details>
   <summary>Client</summary>
   <ul>
@@ -107,8 +106,6 @@ Example commands:
   git clone https://github.com/osamaashraf6/Blog-App
   cd Blog-App
 ```
-
-
 ### Install
 
 Install this project with:
@@ -133,8 +130,6 @@ To run the project, execute the following command:
   rails server
 ```
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -147,6 +142,10 @@ To run the project, execute the following command:
 - Twitter: [Osama Ashraf](https://twitter.com/OsamaAshraf578?t=l75KjrhQgK4h-vSPfgk1gA&s=08)
 - LinkedIn: [Osama Ashraf](https://www.linkedin.com/in/osama-salem-2a046b203)
 
+👤 **Khomotso Mkansi**
+
+- GitHub: [@githubhandle](https://momotsow.github.io/microverse-portfolio/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/khomotso-prudence-mkansi/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +157,6 @@ To run the project, execute the following command:
 > Add the authorization for the app
 > Add the test for it😊
 > Add the UI for the project💯
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
